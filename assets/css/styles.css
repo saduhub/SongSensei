@@ -1,0 +1,17 @@
+body {
+    background-color: bisque;
+}
+
+#masterContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+nav {
+    padding: 50px;
+    background-color: aquamarine;
+}
+
+main {
+    padding: 50px;
+}
