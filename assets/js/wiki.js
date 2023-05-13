@@ -1,99 +1,59 @@
-const apiKey = 'cec4a079f063f3323e52bbe875bc56bb'
-
-let today = new Date();
-let year = today.getFullYear();
-let month = String(today.getMonth() + 1).padStart(2,'0');
-let day = String(today.getDate()).padStart(2,'0');
+// CORS error
+// const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${searchQuery}&srlimit=10`;
 
 
-let url = `https://api.wikimedia.org/feed/v1/wikipedia/en/featured/${year}/${month}/${day}`;
+// Wikipedia API functionality
+// necessary global variables
+let searchQuery;
+let articleUrl;
+let artistExtract;
+let artistDescription;
+let artistName;
+// API call to wikipedia below: makes use of simple requests. Wikimedia API is the one that provides code to be able to specialize API calls to wikipedia. 
+function getInfo() {
+  let apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${searchQuery}`;
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      // console.log(data);
+      articleUrl = data.content_urls.desktop.page;
+      artistExtract = data.extract;
+      artistDescription = data.description;
+      artistName = data.title;
+      // console.log(artistName);
+      // console.log(artistDescription);
+      // console.log(artistExtract);
+      // console.log(articleUrl);
 
-// let response = await fetch( url,
-//     {
-//         headers: {
-//             'Authorization': `Bearer ${apiKey}`,
-//             'Api-User-Agent': 'SongSensei (https://saduhub.github.io/SongSensei/)'
-//         }
-//     }
-// );
-// response.json()
-//     .then(console.log).catch(console.error);
-
-// console.log(response)
-
-
-async function makeRequest() {
-    try {
-      const response = await fetch(url, {
-        headers: {
-          'Authorization': `Bearer ${apiKey}`,
-          'Api-User-Agent': 'SongSensei (https://saduhub.github.io/SongSensei/)'
-        }
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-      } else {
-        throw new Error('Error: ' + response.statusText);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  
-  makeRequest();
-
-
-
-// function makeRequest() {
-//     fetch(url, 
-//         {
-//             headers: {
-//                 'Authorization': `Bearer ${apiKey}`,
-//                 'Api-User-Agent': 'SongSensei (https://saduhub.github.io/SongSensei/)'
-//             }
-//         }
-//         )
-//         .then(function(response) {
-//             if (response.ok) {
-//                 return response.json();
-//             } else {
-//                 alert('Error: ' + response.statusText);
-//             }
-//         })
-//         .then(function(data) {
-//             console.log(data);
-//         })
-//         .catch(function(error) {
-//             console.log(error.message);
-//         });
-// }
-
-// makeRequest();
-
-// let today = new Date();
-// let year = today.getFullYear();
-// let month = String(today.getMonth() + 1).padStart(2, '0');
-// let day = String(today.getDate()).padStart(2, '0');
-
-// let url = `https://en.wikipedia.org/api/rest_v1/feed/featured/${year}/${month}/${day}`;
-
-// function makeRequest() {
-//     fetch(url)
-//         .then(function(response) {
-//             if (response.ok) {
-//                 return response.json();
-//             } else {
-//                 throw new Error('Error: ' + response.statusText);
-//             }
-//         })
-//         .then(function(data) {
-//             console.log(data);
-//         })
-//         .catch(function(error) {
-//             console.log(error.message);
-//         });
-// }
-
-// makeRequest();
+      // put together wikiDiv
+      makeInfoElement()
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+// put together wikiDiv
+function makeInfoElement () {
+  // make div
+  let wikiDiv = $('<div>')
+  wikiDiv.addClass('wikiBox')
+  // make elements and populate using global variables
+  let artist = $('<h2>');
+  artist.text(artistName);
+  let description = $('<h3>');
+  description.text(artistDescription);
+  let extract = $('<p>');
+  extract.text(artistExtract);
+  let url = $('<a>');
+  url.text('Learn More').attr('href', articleUrl)
+  extract.append(url)
+  wikiDiv.append(artist, description, extract)
+  // append to content div
+  $('.content').append(wikiDiv);
+}
+// event listner for each tile
+$('.tile').on('click', function() {
+  searchQuery = $(this).find('p').text();
+  getInfo();
+  $('.content').empty()
+})
