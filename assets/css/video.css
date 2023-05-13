@@ -1,0 +1,17 @@
+#videoContainer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+div#videoContainer iframe {
+    border: 2px solid white;
+    border-radius: 20px
+}
+
+body {
+    margin: 0;
+    background-color: #020202;
+}
