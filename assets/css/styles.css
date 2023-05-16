@@ -1,63 +1,98 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
-  /* Side Navigation Styles */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Side Navigation Styles */
+.sidenav {
+  height: 100%;
+  width: 300px;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  transition: width 0.3s;
+  border-radius: 10px;
+}
+
+.sidenav:hover {
+  width: 320px;
+}
+
+.sidenav a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Main Content Styles */
+.content {
+  margin-left: 300px;
+  padding: 20px;
+}
+
+.box {
+  border: 1px solid #333;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: calc(25% - 10px);
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 10px;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 600px) {
   .sidenav {
-    height: 100%;
-    width: 300px;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 20px;
-    transition: width 0.3s;
-    border-radius: 10px;
-  }
-  
-  .sidenav:hover {
-    width: 320px;
-  }
-  
-  .sidenav a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    color: #fff;
-  }
-  
-  /* Main Content Styles */
-  .content {
-    margin-left: 300px;
-    padding: 20px;
-  }
-  .box {
-    border: 1px solid #333;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-  }
-  .button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  .tiles {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .tile {
-    width: calc(25% - 10px);
-    margin: 5px;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 10px;
+    width: 100px;
   }
 
- .button {
-  border-radius: 10px;
- }
+  .sidenav:hover {
+    width: 120px;
+  }
+
+  .content {
+    margin-left: 120px;
+  }
+
+  .tile {
+    width: calc(50% - 10px);
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .sidenav {
+    display: none;
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .tile {
+    width: 100%;
+  }
+}
