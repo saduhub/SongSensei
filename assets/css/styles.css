@@ -13,13 +13,21 @@ body {
     top: 0;
     left: 0;
     padding-top: 20px;
+    transition: width 0.3s;
+    border-radius: 10px;
   }
+  
+  .sidenav:hover {
+    width: 320px;
+  }
+  
   .sidenav a {
     display: block;
     padding: 10px;
     text-decoration: none;
     color: #fff;
   }
+  
   /* Main Content Styles */
   .content {
     margin-left: 300px;
@@ -29,6 +37,7 @@ body {
     border: 1px solid #333;
     padding: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
   }
   .button {
     background-color: #333;
@@ -46,4 +55,9 @@ body {
     margin: 5px;
     padding: 10px;
     border: 1px solid #333;
+    border-radius: 10px;
   }
+
+ .button {
+  border-radius: 10px;
+ }
