@@ -9,35 +9,35 @@ let articleUrl;
 let artistExtract;
 let artistDescription;
 let artistName;
-// API call to wikipedia below: makes use of simple requests. Wikimedia API is the one that provides code to be able to specialize API calls to wikipedia. 
+let artistImage;
+
+// API call to Wikipedia to retrieve artist information
 function getInfo() {
   let apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${searchQuery}`;
   fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      // console.log(data);
       articleUrl = data.content_urls.desktop.page;
       artistExtract = data.extract;
       artistDescription = data.description;
       artistName = data.title;
-      // console.log(artistName);
-      // console.log(artistDescription);
-      // console.log(artistExtract);
-      // console.log(articleUrl);
+      artistImage = data.thumbnail ? data.thumbnail.source : null;
 
-      // put together wikiDiv
-      makeInfoElement()
+      // Update the wikiDiv with artist information
+      makeInfoElement();
     })
     .catch(error => {
       console.log(error);
     });
 }
-// put together wikiDiv
-function makeInfoElement () {
-  // make div
-  let wikiDiv = $('<div>')
-  wikiDiv.addClass('wikiBox')
-  // make elements and populate using global variables
+
+// Create and display the artist information div
+function makeInfoElement() {
+  // Create div
+  let wikiDiv = $('<div>');
+  wikiDiv.addClass('wikiBox');
+
+  // Create elements and populate using global variables
   let artist = $('<h2>');
   artist.text(artistName);
   let description = $('<h3>');
@@ -45,15 +45,26 @@ function makeInfoElement () {
   let extract = $('<p>');
   extract.text(artistExtract);
   let url = $('<a>');
-  url.text('Learn More').attr('href', articleUrl)
-  extract.append(url)
-  wikiDiv.append(artist, description, extract)
-  // append to content div
+  url.text('Learn More').attr('href', articleUrl);
+  extract.append(url);
+
+  // Append artist image if available
+  if (artistImage) {
+    let image = $('<img>');
+    image.attr('src', artistImage);
+    wikiDiv.append(image);
+  }
+
+  // Append artist information to the wikiDiv
+  wikiDiv.append(artist, description, extract);
+
+  // Append the wikiDiv to the content div
   $('.content').append(wikiDiv);
 }
-// event listner for each tile
+
+// Event listener for each tile
 $('.tile').on('click', function() {
   searchQuery = $(this).find('p').text();
   getInfo();
-  $('.content').empty()
-})
+  $('.content').empty();
+});
