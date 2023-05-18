@@ -4,7 +4,6 @@
 // localStroage functionality
 let artistString = localStorage.getItem('artists')
 let artistArray = artistString ? artistString.split(',') : [];
-console.log(artistArray);
 // Wikipedia API functionality
 // necessary global variables
 let searchQuery;
@@ -96,7 +95,7 @@ home.on('click', function() {
 function preloadButtons() {
   if (artistArray.length > 0) {
     artistArray.forEach(function (artist) {
-      $('.artist-buttons').append(`<a href="#" class="artist-btn">${artist}</a>`);
+      $('.artist-buttons').append(`<a href="#" role="button" class="artist-btn">${artist}</a>`);
     });
   }
   // delegate actions to generated buttons
