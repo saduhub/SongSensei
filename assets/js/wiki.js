@@ -18,8 +18,8 @@ let artistImage;
 function getInfo() {
   let apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${searchQuery}`;
   fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
+    .then((response) => response.json())
+    .then((data) => {
       articleUrl = data.content_urls.desktop.page;
       artistExtract = data.extract;
       artistDescription = data.description;
@@ -29,7 +29,7 @@ function getInfo() {
       // Update the wikiDiv with artist information
       makeInfoElement();
     })
-    .catch(error => {
+    .catch((error) => {
       console.log(error);
     });
 }
@@ -37,27 +37,27 @@ function getInfo() {
 // Create and display the artist information div
 function makeInfoElement() {
   // Create div
-  let wikiDiv = $('<div>');
-  wikiDiv.addClass('wikiBox');
+  let wikiDiv = $("<div>");
+  wikiDiv.addClass("wikiBox");
 
   //Create Youtube Div
   const youtubeDiv = '<div id="videoContainer"></div>';
 
   // Create elements and populate using global variables
-  let artist = $('<h2>');
+  let artist = $("<h2>");
   artist.text(artistName);
-  let description = $('<h3>');
+  let description = $("<h3>");
   description.text(artistDescription);
-  let extract = $('<p>');
+  let extract = $("<p>");
   extract.text(artistExtract);
-  let url = $('<a>');
-  url.text('Learn More').attr('href', articleUrl);
+  let url = $("<a>");
+  url.text("Learn More").attr("href", articleUrl);
   extract.append(url);
 
   // Append artist image if available
   if (artistImage) {
-    let image = $('<img>');
-    image.attr('src', artistImage);
+    let image = $("<img>");
+    image.attr("src", artistImage);
     wikiDiv.append(image);
   }
 
@@ -70,8 +70,8 @@ function makeInfoElement() {
 }
 
 // Event listener for each tile
-$('.tile').on('click', function() {
-  searchQuery = $(this).find('p').text();
+$(".tile").on("click", function () {
+  searchQuery = $(this).find("p").text();
   getInfo();
   $('.content').empty();
   if (artistArray.includes(searchQuery)) {
