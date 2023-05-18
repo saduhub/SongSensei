@@ -2,7 +2,7 @@
 
 ## Description
 
-SongSensei is an website designed to keep users connected with the best artists. Curated by the SongSensei team, a list of the biggest artists is posted on the website. Users can access their profiles as well as their top videos on youtube. SongSensei allows users to explore artist information and effortlessly keep their favorite artists pinned in the navigation bar. 
+SongSensei is an website designed to keep users connected to their favorite artists. Curated by the SongSensei team, a list of the biggest artists is posted on the website. Users can access their profiles as well as their top videos. SongSensei allows users to explore artist information and effortlessly keep their favorite artists pinned in the navigation bar. 
 
 In addition to the current functionality, we have exciting updates planned for the future of SongSensei. These include personalized artist lists tailored to individual users, artist categories for easy exploration, customizable playlists, an avenue to discover talented indie artists, dynamically generated lists of up-and-coming musicians, and much more!
 
@@ -11,7 +11,7 @@ The primary motivation behind developing SongSensei was to facilitate collaborat
 Link to deployed application [here](https://saduhub.github.io/SongSensei/)
 
 Screenshot of project:
-![Screenshot of project]()
+![Screenshot of project](assets/images/SongSensei%20Screenshot.png)
 
 ## Installation
 
