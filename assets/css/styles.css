@@ -4,51 +4,122 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: #ffd0cf;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+}
+
+.sidebar-btn:hover {
+  background-color: #ffbdbe;
+}
+
+.sidebar-btn img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.sidebar-btn span {
+  font-weight: bold;
+}
+
 /* Side Navigation Styles */
 .sidenav {
   height: 100%;
   width: 300px;
-  background-color: #333;
-  color: #fff;
+  background-color: #ffd0cf;
+  color: #333;
   position: fixed;
   top: 0;
   left: 0;
   padding-top: 20px;
   transition: width 0.3s;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidenav:hover {
   width: 320px;
+  text-decoration: underline;
 }
 
 .sidenav a {
   display: block;
   padding: 10px;
   text-decoration: none;
-  color: #fff;
+  color: #333;
+  align-items: center;
+}
+
+.sidenav a img {
+  margin-right: 10px; 
+  width: 20px; 
+  height: 20px;
+}
+
+.artist-btn {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  background-color: #ffd0cf;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.artist-btn:hover {
+  background-color: #ffbdbe;
 }
 
 /* Main Content Styles */
 .content {
   margin-left: 300px;
   padding: 20px;
+  background-color:rgba(255, 208, 207, 0.5);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .box {
-  border: 1px solid #333;
+  border: 1px solid #ffd0cf;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 10px;
 }
 
+.box h2 {
+  font-size: 24px; 
+  margin-bottom: 10px;
+}
+
+.box p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
 .button {
-  background-color: #333;
-  color: #fff;
+  color: #333;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid #ffd0cf;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.button:hover {
+  background-color: #ffbdbe;
 }
 
 .tiles {
@@ -60,8 +131,49 @@ body {
   width: calc(25% - 10px);
   margin: 5px;
   padding: 10px;
-  border: 1px solid #333;
+  border: 1px solid #ffd0cf;
   border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.tile:hover {
+  background-color: #ffbdbe;
+}
+
+.wikiBox {
+  border: 1px solid #ffd0cf;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.wikiBox h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.wikiBox h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.wikiBox p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.wikiBox a {
+  color: #ffd0cf;
+  text-decoration: none;
+}
+
+.wikiBox img {
+  width: 15%;
+  height: 300px; 
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 /* Media Queries */
