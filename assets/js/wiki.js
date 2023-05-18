@@ -1,6 +1,10 @@
 // CORS error
 // const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${searchQuery}&srlimit=10`;
 
+// localStroage functionality
+let artistString = localStorage.getItem('artists')
+let artistArray = artistString ? artistString.split(',') : [];
+console.log(artistArray);
 // Wikipedia API functionality
 // necessary global variables
 let searchQuery;
@@ -61,7 +65,7 @@ function makeInfoElement() {
   wikiDiv.append(artist, description, extract);
 
   // Append the wikiDiv to the content div
-  $(".content").append(wikiDiv);
+  $('.content').append(wikiDiv);
   $(".content").append(youtubeDiv);
 }
 
@@ -69,5 +73,46 @@ function makeInfoElement() {
 $(".tile").on("click", function () {
   searchQuery = $(this).find("p").text();
   getInfo();
-  $(".content").empty();
+  $('.content').empty();
+  if (artistArray.includes(searchQuery)) {
+    return;
+  } else {
+    artistArray.push(searchQuery);
+    localStorage.setItem('artists', artistArray);
+    updateNav();
+  }
 });
+
+
+// Navigation to home
+let home = $('.sidenav').find('a:contains("Home")');
+
+home.on('click', function() {
+  location.reload();
+});
+
+
+// make buttons based on localstorage
+function preloadButtons() {
+  if (artistArray.length > 0) {
+    artistArray.forEach(function (artist) {
+      $('.artist-buttons').append(`<a href="#" class="artist-btn">${artist}</a>`);
+    });
+  }
+  // delegate actions to generated buttons
+  $('.artist-btn').on('click', function (event) {
+    event.preventDefault();
+    searchQuery = $(this).text();
+    getInfo();
+    $('.content').empty();
+  });
+}
+
+// on load, populates buttons
+preloadButtons();
+
+
+function updateNav() {
+  $('.artist-buttons').empty();
+  preloadButtons();
+}

@@ -5,16 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>SoundSensei</title>
   </head>
-  <body>
+  <body class="bg-image" style="background-image: url('assets/images/japan.png')">
     <div class="sidenav">
-      <a href="#">Home</a>
-      <a href="#">Playlists</a>
-      <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"
-        >YouTube</a
-      >
+      <a href="#" class="sidebar-btn">
+        <img src="assets/images/home.png" alt="Home" />
+        <span>Home</span>
+      </a>
+      <a href="#" class="sidebar-btn">
+        <img src="assets/images/playlist.png" alt="Playlists" />
+        <span>Playlists</span>
+      </a>
+      <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ" class="sidebar-btn">
+        <img src="assets/images/youtube.png" alt="YouTube" />
+        <span>YouTube</span>
+      </a>
+      <div class="artist-buttons"></div>
     </div>
+    
 
     <!-- Main Content -->
     <div class="content">
@@ -28,7 +38,7 @@
         <div class="tiles">
           <!-- Tile 1 -->
           <div class="tile">
-            <p>Beyonce</p>
+            <p>Beyoncé</p>
           </div>
           <!-- Tile 2 -->
           <div class="tile">
@@ -60,7 +70,7 @@
           </div>
           <!--Tile 9 -->
           <div class="tile">
-            <p>BTS</p>
+            <p>Adele</p>
           </div>
           <!--Tile 10 -->
           <div class="tile">
@@ -89,3 +99,4 @@
     <script src="assets/js/wiki.js"></script>
   </body>
 </html>
+   
