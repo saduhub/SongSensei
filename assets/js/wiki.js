@@ -94,7 +94,11 @@ function preloadButtons() {
   if (artistArray.length > 0) {
     artistArray.forEach(function (artist) {
       $(".artist-buttons").append(
-        `<a href="#" class="artist-btn">${artist}</a>`
+        `<div class="menu-btn">
+        <a href="#" class="artist-btn">${artist}</a>
+        <span class="artist-delete-btn" data-name="${artist}">x</span>
+        </div>
+        `
       );
     });
   }
@@ -105,7 +109,26 @@ function preloadButtons() {
     getInfo();
     $(".content").empty();
   });
+  /** delete button */
+  $(".artist-delete-btn").on("click", function (event) {
+    console.log('click');
+    const artistName = event.currentTarget.dataset.name;
+    const cloneArtistArray = artistArray.slice();
+    console.log('cloneArtistArray', cloneArtistArray);
+    const nameIndex = cloneArtistArray.findIndex((e) => e === artistName);
+    nameIndex > -1 && cloneArtistArray.splice(nameIndex, 1);
+    if (cloneArtistArray.length > 0) {
+      localStorage.setItem("artists", cloneArtistArray);
+    } else {
+      localStorage.removeItem("artists");
+    }
+    artistArray = cloneArtistArray;
+    event.preventDefault();
+    // updateNav();
+    location.reload();
+  });
 }
+
 
 // on load, populates buttons
 preloadButtons();
