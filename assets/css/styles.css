@@ -176,6 +176,28 @@ body {
   margin-bottom: 10px;
 }
 
+.youtube-videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.youtube-video {
+  width: calc(33% - 20px);
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ffd0cf;
+  border-radius: 10px;
+}
+
+.youtube-video iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+
+
+
 /* Media Queries */
 @media only screen and (max-width: 600px) {
   .sidenav {
