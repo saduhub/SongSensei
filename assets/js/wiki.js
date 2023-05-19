@@ -2,9 +2,8 @@
 // const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=${searchQuery}&srlimit=10`;
 
 // localStroage functionality
-let artistString = localStorage.getItem('artists')
-let artistArray = artistString ? artistString.split(',') : [];
-console.log(artistArray);
+let artistString = localStorage.getItem("artists");
+let artistArray = artistString ? artistString.split(",") : [];
 // Wikipedia API functionality
 // necessary global variables
 let searchQuery;
@@ -65,7 +64,7 @@ function makeInfoElement() {
   wikiDiv.append(artist, description, extract);
 
   // Append the wikiDiv to the content div
-  $('.content').append(wikiDiv);
+  $(".content").append(wikiDiv);
   $(".content").append(youtubeDiv);
 }
 
@@ -73,46 +72,68 @@ function makeInfoElement() {
 $(".tile").on("click", function () {
   searchQuery = $(this).find("p").text();
   getInfo();
-  $('.content').empty();
+  $(".content").empty();
   if (artistArray.includes(searchQuery)) {
     return;
   } else {
     artistArray.push(searchQuery);
-    localStorage.setItem('artists', artistArray);
+    localStorage.setItem("artists", artistArray);
     updateNav();
   }
 });
 
-
 // Navigation to home
-let home = $('.sidenav').find('a:contains("Home")');
+let home = $(".sidenav").find('a:contains("Home")');
 
-home.on('click', function() {
+home.on("click", function () {
   location.reload();
 });
-
 
 // make buttons based on localstorage
 function preloadButtons() {
   if (artistArray.length > 0) {
     artistArray.forEach(function (artist) {
-      $('.artist-buttons').append(`<a href="#" class="artist-btn">${artist}</a>`);
+      $(".artist-buttons").append(
+        `<div class="menu-btn">
+        <a href="#" class="artist-btn">${artist}</a>
+        <span class="artist-delete-btn" data-name="${artist}">x</span>
+        </div>
+        `
+      );
     });
   }
   // delegate actions to generated buttons
-  $('.artist-btn').on('click', function (event) {
+  $(".artist-btn").on("click", function (event) {
     event.preventDefault();
     searchQuery = $(this).text();
     getInfo();
-    $('.content').empty();
+    $(".content").empty();
+  });
+  /** delete button */
+  $(".artist-delete-btn").on("click", function (event) {
+    console.log('click');
+    const artistName = event.currentTarget.dataset.name;
+    const cloneArtistArray = artistArray.slice();
+    console.log('cloneArtistArray', cloneArtistArray);
+    const nameIndex = cloneArtistArray.findIndex((e) => e === artistName);
+    nameIndex > -1 && cloneArtistArray.splice(nameIndex, 1);
+    if (cloneArtistArray.length > 0) {
+      localStorage.setItem("artists", cloneArtistArray);
+    } else {
+      localStorage.removeItem("artists");
+    }
+    artistArray = cloneArtistArray;
+    event.preventDefault();
+    // updateNav();
+    location.reload();
   });
 }
+
 
 // on load, populates buttons
 preloadButtons();
 
-
 function updateNav() {
-  $('.artist-buttons').empty();
+  $(".artist-buttons").empty();
   preloadButtons();
 }

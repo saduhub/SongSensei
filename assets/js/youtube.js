@@ -1,12 +1,15 @@
+
 var apiKey = "AIzaSyBh6RkOr7FT_ie20etsDyCW0iTJP_w2DHY";
+
 
 function getYoutubeData(searchQuery) {
   fetch(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=10&type=video&videoSyndicated=true&videoLicense=creativeCommon&key=${apiKey}`
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchQuery}&maxResults=11&type=video&videoSyndicated=true&videoLicense=creativeCommon&key=${apiKey}`
   )
     .then((response) => response.json())
     .then((data) => {
       var videoInfo = data.items;
+
       var youtubeVideos = document.getElementById("videoContainer");
       youtubeVideos.innerHTML = ""; // Clear existing videos before adding new ones
       for (var i = 0; i < data.items.length; i++) {
@@ -38,4 +41,15 @@ document.querySelectorAll(".tile").forEach((item) => {
     let searchQuery = $(item).find("p").text();
     getYoutubeData(searchQuery);
   });
+
 });
+
+$(document).ready(() => {
+  document.querySelectorAll(".artist-buttons")[0].childNodes.forEach((item) => {
+    item.addEventListener("click", () => {
+      let searchQuery = $(item).text();
+      getYoutubeData(searchQuery);
+    });
+  });
+});
+
