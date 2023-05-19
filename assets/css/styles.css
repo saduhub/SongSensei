@@ -208,3 +208,23 @@ body {
     width: 100%;
   }
 }
+
+.menu-btn {
+  position: relative;
+}
+
+.menu-btn span {
+  position: absolute;
+  top: 8px;
+  right: 26px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-btn span:hover {
+  background-color: #ffbdbe;
+}
