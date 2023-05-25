@@ -11,88 +11,95 @@
     />
     <title>SoundSensei</title>
   </head>
-  <body
-    class="bg-image"
-    style="background-image: url('assets/images/japan.png')"
-  >
-    <div class="sidenav">
-      <a href="#" class="sidebar-btn">
-        <img src="assets/images/home.png" alt="Home" />
-        <span>Home</span>
-      </a>
-      
-      <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ" class="sidebar-btn">
-
-        <img src="assets/images/youtube.png" alt="YouTube" />
-        <span>YouTube</span>
-      </a>
-      <h1>Favorites</h1>
-      <div class="artist-buttons"></div>
-    </div>
-
-    <!-- Main Content -->
-    <div class="content">
-      <div class="box" id="box">
-        <h2>Welcome to SongSensei</h2>
-        <p>Keep up with your favorite artists!</p>
+  <body>
+    <!-- Mobile nav closed-->
+    <nav class="hidden lg:hidden flex flex-row items-center justify-between bg-pink-800 py-4 px-6 w-screen">
+      <div>
+        <img src="https://via.placeholder.com/70x70" alt="">
       </div>
-      <div class="box">
-        <h2>Featured Artists</h2>
-        <div class="tiles">
-          <!-- Tile 1 -->
-          <div class="tile">
-            <p>Beyoncé</p>
-          </div>
-          <!-- Tile 2 -->
-          <div class="tile">
-            <p>Taylor Swift</p>
-          </div>
-          <!-- Tile 3 -->
-          <div class="tile">
-            <p>The Weeknd</p>
-          </div>
-          <!--Tile 4 -->
-          <div class="tile">
-            <p>Ariana Grande</p>
-          </div>
-          <!--Tile 5 -->
-          <div class="tile">
-            <p>Ed Sheeran</p>
-          </div>
-          <!--Tile 6 -->
-          <div class="tile">
-            <p>Justin Bieber</p>
-          </div>
-          <!--Tile 7 -->
-          <div class="tile">
-            <p>Bad Bunny</p>
-          </div>
-          <!--Tile 8 -->
-          <div class="tile">
-            <p>Post Malone</p>
-          </div>
-          <!--Tile 9 -->
-          <div class="tile">
-            <p>Adele</p>
-          </div>
-          <!--Tile 10 -->
-          <div class="tile">
-            <p>Rihanna</p>
-          </div>
-          <!--Tile 11 -->
-          <div class="tile">
-            <p>Bruno Mars</p>
-          </div>
-          <!--Tile 12 -->
-          <div class="tile">
-            <p>Billie Eilish</p>
-          </div>
-          <div class="youtube-videos">
-            <div id="videoContainer"></div>
+      <div>
+        <img src="https://via.placeholder.com/70x70" alt="">
+      </div>
+    </nav>
+    <!-- Mobile nav open -->
+    <nav class="lg:hidden items-center justify-between bg-pink-600 py-4 px-6 w-screen">
+      <div class="flex flex-row items-center justify-between bg-pink-600 py-4">
+        <div>
+          <img src="https://via.placeholder.com/70x70" alt="">
+        </div>
+        <div>
+          <img src="https://via.placeholder.com/70x70" alt="">
         </div>
       </div>
+      <!-- buttons -->
+      <div class="flex flex-col items-center">
+        <button class="w-80 h-20 mb-2 bg-pink-500">Home</button>
+        <button class="w-80 h-20 bg-pink-400">YouTube Music</button>
+      </div>
+      <div class="grid grid-cols-4 gap-4">
+        <button class="w-30 h-20 bg-pink-300">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300">Artist</button>
+      </div>
+      <h3>Your Favorites</h3>
+      <div class="grid grid-cols-4 gap-4">
+        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Post Malone<span class="mt-2">X</span></button>
+        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Artist<span class="mt-2">X</span></button>
+        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Post Malone<span class="mt-2">X</span></button>
+        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Artist<span class="mt-2">X</span></button>
+        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Post Malone<span class="mt-2">X</span></button>
+        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Artist<span class="mt-2">X</span></button>
+      </div>
+    </nav>
+    <div id="global" class="flex flex-row">
+      <!-- Desktop nav -->
+      <nav class="hidden lg:block flex flex-col items-center justify-between bg-pink-800 py-4 px-6 w-300 h-screen">
+        <!-- LOGO -->
+        <div>
+          <img src="https://via.placeholder.com/70x70" alt="">
+        </div>
+        <!-- input -->
+        <div>
+          <label class="block" for="random-pick">Random Pick</label>
+          <input id="random-pick" class="w-240 h-70" type="text" />
+        </div>
+        <!-- links -->
+        <div class="flex flex-row">
+          <img src="https://via.placeholder.com/10x10" alt="">
+          <h2>Home</h2>
+        </div>
+        <div class="flex flex-row">
+          <img src="https://via.placeholder.com/10x10" alt="">
+          <h2>YouTube Music</h2>
+        </div>
+        <!-- Favorites Section -->
+        <div class="bg-pink-700">
+          <h3>Your Favorites</h3>
+          <!-- Favorites placeholder -->
+          <div class="flex flex-row">
+            <img src="https://via.placeholder.com/10x10" alt="">
+            <h2>Home</h2>
+          </div>
+          <div class="flex flex-row">
+            <img src="https://via.placeholder.com/10x10" alt="">
+            <h2>Home</h2>
+          </div>
+        </div>
+      </nav>
+      <main class="my-auto mx-auto">
+        <img src="https://via.placeholder.com/700x700" alt="">
+      </main>
     </div>
-    <!-- jQuery -->
+    
     <script
       src="https://code.jquery.com/jquery-3.6.4.min.js"
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
