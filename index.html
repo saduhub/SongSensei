@@ -9,6 +9,8 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <!-- font-awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
     <title>SoundSensei</title>
   </head>
   <body>
@@ -22,76 +24,88 @@
       </div>
     </nav>
     <!-- Mobile nav open -->
-    <nav class="lg:hidden items-center justify-between bg-pink-600 py-4 px-6 w-screen">
-      <div class="flex flex-row items-center justify-between bg-pink-600 py-4">
+    <nav class="lg:hidden items-center justify-between bg-black py-4 px-6 w-screen opacity-90">
+      <div class="flex flex-row items-center justify-between py-4">
         <div>
-          <img src="https://via.placeholder.com/70x70" alt="">
+          <h4 class="text-pink-300 text-center text-5xl">先生</h4>
+          <h4 class="text-pink-300 text-center">SongSensei</h4>
         </div>
-        <div>
-          <img src="https://via.placeholder.com/70x70" alt="">
+        <div class="flex flex-col justify-center items-center">
+          <span class="bg-pink-300 h-1.5 w-12 mb-2 rounded-full"></span>
+          <span class="bg-pink-300 h-1.5 w-12 mb-2 rounded-full"></span>
+          <span class="bg-pink-300 h-1.5 w-12 rounded-full"></span>
         </div>
       </div>
       <!-- buttons -->
-      <div class="flex flex-col items-center">
-        <button class="w-80 h-20 mb-2 bg-pink-500">Home</button>
-        <button class="w-80 h-20 bg-pink-400">YouTube Music</button>
+      <div class="flex space-x-4 mb-2 mt-6 justify-center">
+        <button class="w-80 h-20 mb-2 bg-pink-300 hover:bg-pink-700 font-bold py-2 px-4 rounded"><h2 class="text-gray-900"><i class="fas fa-home"></i>Home</h2></button>
+        <button class="w-80 h-20 mb-2 bg-pink-300 hover:bg-pink-700 font-bold py-2 px-4 rounded"><h2 class="text-gray-900"><i class="fab fa-youtube"></i>YouTube Music</h2></button>
+      </div>
+      <!-- input nav bar -->
+      <div class="flex flex-col justify-center mb-10">
+        <label class="block text-pink-300 text-center mb-2" for="top-videos">Today's YouTube Picks</label>
+        <input id="top-videos" class="w-240 h-70 rounded bg-gray-200 mx-auto" type="text" list="options" placeholder="  Select an option"/>
+        <datalist id="options">
+          <option value="  Background music">
+          <option value="  Gaming">
+          <option value="  Live">
+        </datalist>
       </div>
       <div class="grid grid-cols-4 gap-4">
-        <button class="w-30 h-20 bg-pink-300">Post Malone</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
-        <button class="w-30 h-20 bg-pink-300">Artist</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
       </div>
-      <h3>Your Favorites</h3>
-      <div class="grid grid-cols-4 gap-4">
-        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Post Malone<span class="mt-2">X</span></button>
-        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Artist<span class="mt-2">X</span></button>
-        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Post Malone<span class="mt-2">X</span></button>
-        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Artist<span class="mt-2">X</span></button>
-        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Post Malone<span class="mt-2">X</span></button>
-        <button class="w-30 h-20 bg-pink-300 flex flex-col justify-center items-center">Artist<span class="mt-2">X</span></button>
+      <h3 class="text-pink-300 text-center pt-8">Your Favorites</h3>
+      <div class="grid grid-cols-4 gap-4 pt-2">
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
       </div>
     </nav>
     <div id="global" class="flex flex-row">
       <!-- Desktop nav -->
-      <nav class="hidden lg:block flex flex-col items-center justify-between bg-pink-800 py-4 px-6 w-300 h-screen">
+      <nav class="hidden lg:block flex flex-col items-center justify-between bg-black py-4 px-6 w-300 h-screen opacity-90">
         <!-- LOGO -->
         <div>
-          <img src="https://via.placeholder.com/70x70" alt="">
+          <h4 class="text-pink-300 text-center text-5xl">先生</h4>
+          <h4 class="text-pink-300 text-center">SongSensei</h4>
         </div>
         <!-- input -->
-        <div>
-          <label class="block" for="random-pick">Random Pick</label>
-          <input id="random-pick" class="w-240 h-70" type="text" />
+        <div class="py-12">
+          <label class="block text-pink-300 text-center mb-2" for="top-videos">Today's YouTube Picks</label>
+          <input id="top-videos" class="w-240 h-70 rounded bg-gray-200" type="text" list="options" placeholder="  Select an option"/>
+          <datalist id="options">
+            <option value="  Background music">
+            <option value="  Gaming">
+            <option value="  Live">
+          </datalist>
         </div>
         <!-- links -->
-        <div class="flex flex-row">
-          <img src="https://via.placeholder.com/10x10" alt="">
-          <h2>Home</h2>
+        <div class="flex flex-row justify-center py-4">
+          <h2 class="text-pink-300"><i class="fas fa-home"></i>Home</h2>
         </div>
-        <div class="flex flex-row">
-          <img src="https://via.placeholder.com/10x10" alt="">
-          <h2>YouTube Music</h2>
+        <div class="flex flex-row justify-center pb-12">
+          <h2 class="text-pink-300"><i class="fab fa-youtube"></i>YouTube Music</h2>
         </div>
         <!-- Favorites Section -->
-        <div class="bg-pink-700">
-          <h3>Your Favorites</h3>
+        <div class="bg-gray-900 rounded py-4">
+          <h3 class="text-pink-400 text-center py-2">Your Favorites</h3>
           <!-- Favorites placeholder -->
-          <div class="flex flex-row">
-            <img src="https://via.placeholder.com/10x10" alt="">
-            <h2>Home</h2>
+          <div class="flex flex-row justify-center">
+            <h2 class="text-pink-300 py-2">Home<span><i class="far fa-trash-alt"></i></span></h2>
           </div>
-          <div class="flex flex-row">
-            <img src="https://via.placeholder.com/10x10" alt="">
-            <h2>Home</h2>
+          <div class="flex flex-row justify-center">
+            <h2 class="text-pink-300 py-2">Home<span><i class="far fa-trash-alt"></i></span></h2>
           </div>
         </div>
       </nav>
