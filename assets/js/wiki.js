@@ -137,3 +137,6 @@ function updateNav() {
   $(".artist-buttons").empty();
   preloadButtons();
 }
+
+
+
