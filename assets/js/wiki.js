@@ -4,6 +4,7 @@
 // localStroage functionality
 let artistString = localStorage.getItem("artists");
 let artistArray = artistString ? artistString.split(",") : [];
+
 // Wikipedia API functionality
 // necessary global variables
 let searchQuery;
@@ -35,108 +36,90 @@ function getInfo() {
 
 // Create and display the artist information div
 function makeInfoElement() {
-  // Create div
-  let wikiDiv = $("<div>");
-  wikiDiv.addClass("wikiBox");
-
-  //Create Youtube Div
-  const youtubeDiv = '<div id="videoContainer"></div>';
-
-  // Create elements and populate using global variables
-  let artist = $("<h2>");
-  artist.text(artistName);
-  let description = $("<h3>");
-  description.text(artistDescription);
-  let extract = $("<p>");
-  extract.text(artistExtract);
-  let url = $("<a>");
-  url.text("Learn More").attr("href", articleUrl);
-  extract.append(url);
-
-  // Append artist image if available
-  if (artistImage) {
-    let image = $("<img>");
-    image.attr("src", artistImage);
-    wikiDiv.append(image);
-  }
-
-  // Append artist information to the wikiDiv
-  wikiDiv.append(artist, description, extract);
-
-  // Append the wikiDiv to the content div
-  $(".content").append(wikiDiv);
-  $(".content").append(youtubeDiv);
+  // Create the imageContainer div
+  let imageContainer = $('<div class="flex items-center justify-center"></div>');
+  // Create the profilePic element
+  let profilePic = $(`<img src="${artistImage}" alt="artist image">`);
+  // Create the artist details div
+  let details = $('<div></div>');
+  // Create the artist name heading
+  let name = $(`<h3 class="text-pink-300 text-xl font-bold">${artistName}</h3>`);
+  // Create the artist description paragraph
+  let description = $(`<p class="text-pink-300 text-sm">${ artistDescription}</p>`);
+  // Create the artist extract paragraph
+  let extract = $(`<p class="text-pink-300 text-sm">${artistExtract}</p>`);
+  // Create the artist extract paragraph
+  let link = $(`<p class="text-pink-300 text-sm">Check out his wiki <a class="text-gray-100" href="${articleUrl}">here</a>!</p>`);
+  // Append the profilePic to the imageContainer div
+  imageContainer.append(profilePic);
+  // Append the name and description to the details div
+  details.append(name, description, extract, link);
+  // Clear artist-profile div
+  $('#artist-profile').empty();
+  // Append the imageContainer and details to the artist-profile div
+  $('#artist-profile').append(imageContainer, details);
 }
 
 // Event listener for each tile
-$(".tile").on("click", function () {
-  searchQuery = $(this).find("p").text();
+$("#tile").on("click", function () {
+  searchQuery = $(this).text();
   getInfo();
-  $(".content").empty();
+  console.log(searchQuery);
+  console.log(artistDescription);
+// will only work if artist is removed from array
   if (artistArray.includes(searchQuery)) {
     return;
   } else {
     artistArray.push(searchQuery);
     localStorage.setItem("artists", artistArray);
-    updateNav();
+    artistString = localStorage.getItem("artists");
+    artistArray = artistString.split(",")
+    console.log(artistArray)
+    generateArtistButtons();
   }
 });
 
 // Navigation to home
-let home = $(".sidenav").find('a:contains("Home")');
+let homeBtn = $("#home");
 
-home.on("click", function () {
+homeBtn.on("click", function () {
   location.reload();
 });
 
-// make buttons based on localstorage
-function preloadButtons() {
+// Function to generate and append artist buttons based on local storage
+function generateArtistButtons() {
+  $('#favorites').empty();
+
   if (artistArray.length > 0) {
-    artistArray.forEach(function (artist) {
-      $(".artist-buttons").append(
-        `<div class="menu-btn">
-        <a href="#" class="artist-btn">${artist}</a>
-        <span class="artist-delete-btn" data-name="${artist}">x</span>
-        </div>
-        `
-      );
+    artistArray.forEach(function(artist) {
+      let div = $('<div></div>').addClass('flex flex-row justify-center');
+      let h2 = $('<h2></h2>').addClass('text-pink-300 py-2 hover:text-pink-100').text(`${artist} `);
+      let span = $('<span></span>').addClass('trash').append($('<i></i>').addClass('far fa-trash-alt'));
+      h2.append(span);
+      div.append(h2);
+      $('#favorites').append(div);
     });
   }
+  
   // delegate actions to generated buttons
-  $(".artist-btn").on("click", function (event) {
-    event.preventDefault();
-    searchQuery = $(this).text();
-    getInfo();
-    $(".content").empty();
+  $(".trash").on("click", function () {
+    console.log("works!");
+    $(this).closest('div').remove();
+    // need to remove artist from array
   });
-  /** delete button */
-  $(".artist-delete-btn").on("click", function (event) {
-    console.log('click');
-    const artistName = event.currentTarget.dataset.name;
-    const cloneArtistArray = artistArray.slice();
-    console.log('cloneArtistArray', cloneArtistArray);
-    const nameIndex = cloneArtistArray.findIndex((e) => e === artistName);
-    nameIndex > -1 && cloneArtistArray.splice(nameIndex, 1);
-    if (cloneArtistArray.length > 0) {
-      localStorage.setItem("artists", cloneArtistArray);
-    } else {
-      localStorage.removeItem("artists");
-    }
-    artistArray = cloneArtistArray;
-    event.preventDefault();
-    // updateNav();
-    location.reload();
-  });
+
 }
 
+// on load, generate artist buttons
+generateArtistButtons();
 
-// on load, populates buttons
-preloadButtons();
+let hamburgerButton = $('#hamburger');
+let navContent = $('#nav-content');
 
-function updateNav() {
-  $(".artist-buttons").empty();
-  preloadButtons();
-}
-
-
-
+hamburgerButton.on('click', function() {
+  if (navContent.is(':hidden')) {
+    navContent.slideDown();
+  } else {
+    navContent.slideUp();
+  }
+});
