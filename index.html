@@ -14,21 +14,7 @@
     <title>SoundSensei</title>
   </head>
   <body>
-    <!-- Mobile nav closed-->
-    <!-- <nav id="closed-nav" class="hidden lg:hidden items-center justify-between bg-black py-4 px-6 w-screen opacity-90">
-      <div class="flex flex-row items-center justify-between py-4">
-        <div>
-          <h4 class="text-pink-300 text-center text-5xl">先生</h4>
-          <h4 class="text-pink-300 text-center">SongSensei</h4>
-        </div>
-        <div id="hamburger" class="flex flex-col justify-center items-center">
-          <span class="bg-pink-300 h-1.5 w-12 mb-2 rounded-full"></span>
-          <span class="bg-pink-300 h-1.5 w-12 mb-2 rounded-full"></span>
-          <span class="bg-pink-300 h-1.5 w-12 rounded-full"></span>
-        </div>
-      </div>
-    </nav> -->
-    <!-- Mobile nav open -->
+    <!-- Mobile nav  -->
     <nav id="open-nav" class="lg:hidden items-center justify-between bg-black py-4 px-6 w-screen opacity-90">
       <div class="flex flex-row items-center justify-between py-4">
         <div>
@@ -50,7 +36,10 @@
         <!-- input nav bar -->
         <div class="flex flex-col justify-center mb-10">
           <label class="block text-pink-300 text-center mb-2" for="top-videos">Today's YouTube Picks</label>
-          <input id="top-videos" class="w-240 h-70 rounded bg-gray-200 mx-auto" type="text" list="options" placeholder="  Select an option"/>
+          <div class="flex flex-col items-center">
+            <input id="top-videos1" class="w-240 h-70 rounded bg-gray-200 mx-auto" type="text" list="options" placeholder="  Select an option"/>
+            <button id="search-button1" class="w-240 h-70 mb-2 bg-pink-300 hover:bg-pink-700 font-bold py-2 px-4 m-2 rounded">Search</button>
+          </div>
           <datalist id="options">
             <option value="  Background music">
             <option value="  Gaming">
@@ -58,19 +47,32 @@
           </datalist>
         </div>
         <h3 class="text-pink-300 text-center pb-2">Sensei's Picks</h3>
-        <div class="grid grid-cols-4 gap-4">
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-          <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+        <div class="artist-buttons grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">BTS</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">The Weeknd</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Bruno Mars</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Beyoncé</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Taylor Swift</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Eminem</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Ed Sheeran</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Justin Bieber</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Bad Bunny</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Ariana Grande</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Billie Eilish</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Rihanna</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Adele</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Vicente Fernandez</button>
+          <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Peso Pluma</button>
         </div>
-        <h3 class="text-pink-300 text-center pt-8">Your Favorites</h3>
-        <div class="grid grid-cols-4 gap-4 pt-2">
-          <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
+        <!-- favorites mobile nav bar -->
+
+
+        <h3 id="yourFavoritesMobile" class="text-pink-300 text-center pt-8 hidden">Your Favorites</h3>
+
+
+        <div class="grid grid-cols-4 gap-4 pt-2" id="favoritesMobile">
+          <div class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span class="trash"><i class="far fa-trash-alt"></i></span></div>
           <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
           <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
           <button class="w-30 h-20 bg-pink-300 text-gray-900 font-bold rounded" style="background-image: url('./assets/images/roman-kraft-CqoSqqHhsuI-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone <span><i class="far fa-trash-alt"></i></span></button>
@@ -89,9 +91,12 @@
           <h4 class="text-pink-300 text-center">SongSensei</h4>
         </div>
         <!-- input -->
-        <div class="py-12">
+        <div class="flex flex-col justify-center mb-10 py-12">
           <label class="block text-pink-300 text-center mb-2" for="top-videos">Today's YouTube Picks</label>
-          <input id="top-videos" class="w-240 h-70 rounded bg-gray-200" type="text" list="options" placeholder="  Select an option"/>
+          <div class="flex flex-col items-center">
+            <input id="top-videos2" class="w-240 h-70 rounded bg-gray-200 mx-auto" type="text" list="options" placeholder="  Select an option"/>
+            <button id="search-button2" class="w-240 h-70 mb-2 bg-pink-300 hover:bg-pink-700 font-bold py-2 px-4 m-2 rounded">Search</button>
+          </div>
           <datalist id="options">
             <option value="  Background music">
             <option value="  Gaming">
@@ -103,11 +108,11 @@
           <h2 id="home" class="text-pink-300 hover:text-pink-100"><i class="fas fa-home"></i> Home</h2>
         </div>
         <div class="flex flex-row justify-center pb-12">
-          <h2 class="text-pink-300 hover:text-pink-100"><i class="fab fa-youtube"></i> YouTube Music</h2>
+          <a href="https://music.youtube.com/" class="text-pink-300 hover:text-pink-100"><i class="fab fa-youtube"></i> YouTube Music</a>
         </div>
         <!-- Favorites Section Nav-->
+        <h3 class="text-pink-300 text-center pt-8 mb-2">Your Favorites</h3>
         <div id="favorites" class="bg-gray-900 rounded py-4">
-          <h3 class="text-pink-400 text-center py-2">Your Favorites</h3>
           <!-- Favorites placeholder -->
           <div class="flex flex-row justify-center">
             <h2 class="text-pink-300 py-2 hover:text-pink-100">Joji <span><i class="far fa-trash-alt"></i></span></h2>
@@ -118,48 +123,46 @@
         </div>
       </nav>
       <main class="my-auto mx-auto s-p-6 p-8 w-screen lg:pl-64 max-w-screen-2xl">
-        <div class="bg-black opacity-90 rounded p-8">
+        <div id="description" class="bg-black opacity-90 rounded p-8">
           <h1 class="text-pink-300 text-3xl font-bold pb-2">Welcome to SongSensei!</h1>
           <p class="text-pink-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates vero eius sunt aliquid laudantium doloribus ipsam est iure. Quaerat quidem eveniet cum non accusantium ratione provident error incidunt minus numquam?
           Nesciunt quaerat, voluptatibus consectetur amet deleniti labore natus quia. Placeat et saepe amet? Aliquam ad rem nam, accusantium non, adipisci fugiat sequi id, minima quod obcaecati? Temporibus totam cumque cupiditate.
           Nemo reprehenderit similique deserunt vitae facere officia tenetur, cum mollitia obcaecati dolorem autem eaque quas modi, maiores dolores ad, rerum repudiandae officiis itaque ex repellat? Accusamus recusandae dolorem culpa reprehenderit.</p>
         </div>
         <!-- picks -->
-        <div class="bg-black opacity-90 rounded mt-4 p-2">
+        <div id="picks-main" class="bg-black opacity-90 rounded mt-4 p-2">
           <h3 class="text-pink-300 text-center pb-2">Sensei's Picks</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            <button id="tile" class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
-            <button class="w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+          <div class="artist-buttons grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Post Malone</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">BTS</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">The Weeknd</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Bruno Mars</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Beyoncé</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Taylor Swift</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Eminem</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Ed Sheeran</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Justin Bieber</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Bad Bunny</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Ariana Grande</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Billie Eilish</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Rihanna</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Adele</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Vicente Fernandez</button>
+            <button class="tile w-30 h-20 bg-pink-300 text-white font-bold rounded" style="background-image: url('./assets/images/galen-crout-0_xMuEbpFAQ-unsplash.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">Peso Pluma</button>
           </div>
         </div>
         <!-- artist -->
-        <div id="artist-profile" class="flex flex-col md:flex-row bg-black opacity-90 rounded mt-4 p-2 space-x-2 ">
+        <div id="artist-profile" class="hidden grid grid-cols-1 md:grid-cols-2 gap-2 bg-black opacity-90 rounded mt-4 p-2 space-x-2 ">
           <div class="flex items-center justify-center">
             <img src="https://via.placeholder.com/1200x1600" alt="artist image">
           </div>
           <div>
-            <h3 class="text-pink-300 text-xl font-bold">Artist Name</h3>
-            <p class="text-pink-300 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, recusandae possimus error ab laborum molestias exercitationem cupiditate, velit eum, fugiat minima inventore modi. Culpa error aliquam eius quia dolorum voluptatum.</p>
+            <h3 class="text-pink-300 text-xl font-bold text-center md:text-left">Artist Name</h3>
+            <p class="text-pink-300 text-sm text-center md:text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, recusandae possimus error ab laborum molestias exercitationem cupiditate, velit eum, fugiat minima inventore modi. Culpa error aliquam eius quia dolorum voluptatum.</p>
           </div>
         </div>
         <!-- video -->
-        <div class="grid grid-cols-1 md:grid-cols-2 bg-black opacity-90 rounded mt-4 p-2">
-          <div class="flex items-center justify-center rounded m-2">
-            <img src="https://via.placeholder.com/1600x1200" alt="artist image" class="rounded">
-          </div>
-          <div class="flex items-center justify-center rounded m-2">
-            <img src="https://via.placeholder.com/1600x1200" alt="artist image" class="rounded">
-          </div>
-          <div class="flex items-center justify-center rounded m-2">
-            <img src="https://via.placeholder.com/1600x1200" alt="artist image" class="rounded">
-          </div>
+        <div id="video-div" class="hidden grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2 bg-black opacity-90 rounded mt-4 p-3">
         </div>
       </main>
     </div>
